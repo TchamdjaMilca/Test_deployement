@@ -53,7 +53,6 @@ app.use("/db", seed);
 app.use("/", get404);
 app.use(getErrors);
 
-​
 mongoose
     .connect(process.env.DATA_BASE)
     .then(() => {
@@ -62,7 +61,7 @@ mongoose
         });
     })
     .catch(err => console.log(err));
-​
+    
 export default app;//Permet d'exporter l'application pour être utilisée par Vercel
 
 /**
