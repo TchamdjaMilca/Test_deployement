@@ -52,14 +52,18 @@ app.use("/auth", authRoutes);
 app.use("/db", seed);
 app.use("/", get404);
 app.use(getErrors);
+
+​
 mongoose
-  .connect(process.env.DATA_BASE)
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Le serveur écoute sur http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => console.log(err));
+    .connect(process.env.DATA_BASE)
+    .then(() => {
+        app.listen(3000, () => {
+            console.log("Node.js est à l'écoute sur http://localhost:%s ", process.env.PORT);
+        });
+    })
+    .catch(err => console.log(err));
+​
+export default app;//Permet d'exporter l'application pour être utilisée par Vercel
 
 /**
  * cd .. pour quitter un dossier
